@@ -1,6 +1,7 @@
 ﻿using System;
 
 namespace VegetableShopApp
+
 {
     public abstract class Vegetable
     {
@@ -12,13 +13,13 @@ namespace VegetableShopApp
         }
 
         public abstract decimal Price { get; }
-
         public abstract string GetInfo();
     }
 
     public class Carrot : Vegetable
     {
         public Carrot(decimal basePrice) : base(basePrice) { }
+
         public override decimal Price => BasePrice;
         public override string GetInfo() => $"Морква - Ціна: {Price:C}";
     }
@@ -26,6 +27,7 @@ namespace VegetableShopApp
     public class Tomato : Vegetable
     {
         public Tomato(decimal basePrice) : base(basePrice) { }
+
         public override decimal Price => BasePrice;
         public override string GetInfo() => $"Помідор - Ціна: {Price:C}";
     }
@@ -33,7 +35,12 @@ namespace VegetableShopApp
     public class Potato : Vegetable
     {
         public decimal Count { get; }
-        public Potato(decimal basePrice, decimal count) : base(basePrice) => Count = count;
+
+        public Potato(decimal basePrice, decimal count) : base(basePrice)
+        {
+            Count = count;
+        }
+
         public override decimal Price => BasePrice * Count;
         public override string GetInfo() => $"Картопля - {Count} кг - Ціна: {Price:C}";
     }
@@ -41,7 +48,12 @@ namespace VegetableShopApp
     public class Cucumber : Vegetable
     {
         public decimal Count { get; }
-        public Cucumber(decimal basePrice, decimal count) : base(basePrice) => Count = count;
+
+        public Cucumber(decimal basePrice, decimal count) : base(basePrice)
+        {
+            Count = count;
+        }
+
         public override decimal Price => BasePrice * Count;
         public override string GetInfo() => $"Огірок - {Count} кг - Ціна: {Price:C}";
     }
